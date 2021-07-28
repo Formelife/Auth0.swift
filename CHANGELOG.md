@@ -1,5 +1,24 @@
 # Change Log
 
+## [1.35.0](https://github.com/auth0/Auth0.swift/tree/1.35.0) (2021-07-19)
+[Full Changelog](https://github.com/auth0/Auth0.swift/compare/1.34.0...1.35.0)
+
+**Added**
+- Expose recovery code [SDK-2661] [\#487](https://github.com/auth0/Auth0.swift/pull/487) ([Widcket](https://github.com/Widcket))
+- [FR-485] Add support for custom LAPolicy when evaluating biometry aut… [\#486](https://github.com/auth0/Auth0.swift/pull/486) ([krodak](https://github.com/krodak))
+
+## [1.34.0](https://github.com/auth0/Auth0.swift/tree/1.34.0) (2021-07-05)
+[Full Changelog](https://github.com/auth0/Auth0.swift/compare/1.33.1...1.34.0)
+
+**Added**
+- Add `user` property to CredentialsManager [SDK-2633] [\#482](https://github.com/auth0/Auth0.swift/pull/482) ([Widcket](https://github.com/Widcket))
+
+## [1.33.1](https://github.com/auth0/Auth0.swift/tree/1.33.1) (2021-06-07)
+[Full Changelog](https://github.com/auth0/Auth0.swift/compare/1.33.0...1.33.1)
+
+**Changed**
+- Make test dependencies not resolve when installing with SPM [SDK-2600] [\#476](https://github.com/auth0/Auth0.swift/pull/476) ([Widcket](https://github.com/Widcket))
+
 ## [1.33.0](https://github.com/auth0/Auth0.swift/tree/1.33.0) (2021-04-23)
 [Full Changelog](https://github.com/auth0/Auth0.swift/compare/1.32.0...1.33.0)
 
