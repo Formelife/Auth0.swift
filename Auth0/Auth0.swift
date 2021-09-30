@@ -153,6 +153,10 @@ func plistValues(bundle: Bundle) -> (clientId: String, domain: String)? {
         print("Using Auth0 Development")
         path = bundle.path(forResource: "Auth0Development", ofType: "plist")!
         values = NSDictionary(contentsOfFile: path!) as! [String: Any]
+    case 3:
+        print("Using Auth0 Sandbox")
+        path = bundle.path(forResource: "Auth0Sandbox", ofType: "plist")!
+        values = NSDictionary(contentsOfFile: path!) as! [String: Any]
     default:
         print("Unknown environment")
         break
