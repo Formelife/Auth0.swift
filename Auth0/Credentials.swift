@@ -69,27 +69,33 @@ public class Credentials: NSObject, JSONObjectPayload, NSSecureCoding {
     }
 
     // MARK: - NSSecureCoding
+    
+    required public convenience init?(coder aDecoder: NSCoder) {
+        let accessToken = aDecoder.decodeObject(of: NSString.self, forKey: "accessToken")
+        let tokenType = aDecoder.decodeObject(of: NSString.self, forKey: "tokenType")
+        let idToken = aDecoder.decodeObject(of: NSString.self, forKey: "idToken")
+        let refreshToken = aDecoder.decodeObject(of: NSString.self, forKey: "refreshToken")
+        let expiresIn = aDecoder.decodeObject(of: NSDate.self, forKey: "expiresIn")
+        let scope = aDecoder.decodeObject(of: NSString.self, forKey: "scope")
+        let recoveryCode = aDecoder.decodeObject(of: NSString.self, forKey: "recoveryCode")
 
-    convenience required public init?(coder aDecoder: NSCoder) {
-        let accessToken = aDecoder.decodeObject(forKey: "accessToken")
-        let tokenType = aDecoder.decodeObject(forKey: "tokenType")
-        let idToken = aDecoder.decodeObject(forKey: "idToken")
-        let refreshToken = aDecoder.decodeObject(forKey: "refreshToken")
-        let expiresIn = aDecoder.decodeObject(forKey: "expiresIn")
-        let scope = aDecoder.decodeObject(forKey: "scope")
-        let recoveryCode = aDecoder.decodeObject(forKey: "recoveryCode")
-
-        self.init(accessToken: accessToken as? String, tokenType: tokenType as? String, idToken: idToken as? String, refreshToken: refreshToken as? String, expiresIn: expiresIn as? Date, scope: scope as? String, recoveryCode: recoveryCode as? String)
+        self.init(accessToken: accessToken as String? ?? "",
+                  tokenType: tokenType as String? ?? "",
+                  idToken: idToken as String? ?? "",
+                  refreshToken: refreshToken as String?,
+                  expiresIn: expiresIn as Date? ?? Date(),
+                  scope: scope as String?,
+                  recoveryCode: recoveryCode as String?)
     }
 
     public func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.accessToken, forKey: "accessToken")
-        aCoder.encode(self.tokenType, forKey: "tokenType")
-        aCoder.encode(self.idToken, forKey: "idToken")
-        aCoder.encode(self.refreshToken, forKey: "refreshToken")
-        aCoder.encode(self.expiresIn, forKey: "expiresIn")
-        aCoder.encode(self.scope, forKey: "scope")
-        aCoder.encode(self.recoveryCode, forKey: "recoveryCode")
+        aCoder.encode(self.accessToken as NSString?, forKey: "accessToken")
+        aCoder.encode(self.tokenType as NSString?, forKey: "tokenType")
+        aCoder.encode(self.idToken as NSString?, forKey: "idToken")
+        aCoder.encode(self.refreshToken as NSString?, forKey: "refreshToken")
+        aCoder.encode(self.expiresIn as NSDate?, forKey: "expiresIn")
+        aCoder.encode(self.scope as NSString?, forKey: "scope")
+        aCoder.encode(self.recoveryCode as NSString?, forKey: "recoveryCode")
     }
 
     public static var supportsSecureCoding: Bool = true
